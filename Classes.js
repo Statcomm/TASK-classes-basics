@@ -17,8 +17,27 @@
  * after you are done with the class, create at least 3 objects of type Actor of your favorite actors
  */
 class Person {
-  // continue the code here
+  constructor(firstName, lastName, gender, birthYear, interests){
+    this.firstName = firstName
+    this.lastName = lastName
+    this.gender = gender
+    this.birthYear = birthYear
+    this.interests = [interests]
+  }
+printName = () => `${this.firstName} ${this.lastName}`
+calculateAge = (currentYear) => currentYear - this.birthYear
+addInterest = (newInterest) => { this.interests.push(newInterest); return this.interests;}
+
 }
+
+
+const RDJ = new Person ("Robert", "Downey Jr.", "Male", 1965, "Playboying")
+const Brobot = new Person ("Bro", "Bot", "Robot", 2000, "Coding")
+const Azmodeus = new Person ("Azmodan", "Amadeus", "Demon", -156000, "Painting")
+
+// console.log(RDJ.printName())
+// console.log(Brobot.calculateAge(2021))
+// Azmodeus.addInterest("Frolicking")
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
@@ -42,7 +61,12 @@ class Person {
  */
 
 class Movie {
-  // continue the code here
+constructor (title, duration, genre){
+this.title = title
+this.duration = duration
+this.genre = genre
+this.rating = []
+}
 }
 
 /** (Question 3): (1000 Points)
@@ -54,4 +78,16 @@ class Movie {
  * +
  */
 
-// write the class here
+class Actor extends Person{ 
+  constructor(firstName, lastName, gender, birthYear, interests, movie){
+  super(firstName, lastName, gender, birthYear, interests)
+  this.movie = [movie]
+}
+addMovie = (movietoadd) => { this.movie.push(movietoadd)
+console.log(`${movietoadd} was added. Movie list is ${this.movie}`) }
+}
+
+const Constantino = new Actor ("Constant", "Tino", "Maratino", 1985, "Nourishment", [])
+console.log(Constantino)
+
+//forgot to add the extends and misunderstood the whole constructor thingy
